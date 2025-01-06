@@ -34,6 +34,15 @@ class CompletedShoppingListController extends Controller
     }
     
     /**
+     * 一覧用の Illuminate\Database\Eloquent\Builder インスタンスの取得
+     */
+    protected function getListBuilder()
+    {
+        return CompletedShoppingListModel::where('user_id', Auth::id())
+        ->orderBy('created_at');
+    }
+    
+    /**
      * 「単一のタスク」Modelの取得
      */
     protected function getTaskModel($shopping_list_id)
@@ -49,6 +58,21 @@ class CompletedShoppingListController extends Controller
         }
         
         return $shopping_list;
+    }
+
+    /**
+     * 「単一のタスク」の表示
+     */
+    protected function singleTaskRender($shopping_list_id, $template_name)
+    {
+        // task_idのレコードを取得する
+        $shopping_list = $this->getTaskModel($shopping_list_id);
+        if ($shopping_list === null) {
+            return redirect('/shopping_list/list');
+        }
+
+        // テンプレートに「取得したレコード」の情報を渡す
+        return view($template_name, ['shopping_list' => $shopping_list]);
     }
 
     

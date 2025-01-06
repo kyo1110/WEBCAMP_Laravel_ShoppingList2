@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShoppingListController;
-use App\Http\Controllers\CompletedTaskController;
+use App\Http\Controllers\CompletedShoppingListController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
