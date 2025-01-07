@@ -24,6 +24,9 @@ class UserController extends Controller
     {
         // validate済みのデータの取得
         $datum = $request->validated();
+        $request->validate([
+            'password' =>['required','confirmed']
+        ]);
 
         // user_id の追加
         $datum['user_id'] = Auth::id();

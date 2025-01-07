@@ -160,7 +160,7 @@ class ShoppingListController extends Controller
     {
         // task_idのレコードを取得する
         $shopping_list = $this->getTaskModel($shopping_list);
-        if ($task === null) {
+        if ($shopping_list === null) {
             return redirect('/shopping_list/list');
         }
 
