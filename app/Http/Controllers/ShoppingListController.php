@@ -174,7 +174,8 @@ class ShoppingListController extends Controller
     protected function getListBuilder()
     {
         return ShoppingListModel::where('user_id', Auth::id())
-                     ->orderBy('created_at');
+                    ->orderBy('name')
+                    ->orderBy('created_at');
     }    
 
 }
