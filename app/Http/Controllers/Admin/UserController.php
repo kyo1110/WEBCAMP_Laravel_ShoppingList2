@@ -20,7 +20,7 @@ class UserController extends Controller
         $list = UserModel::select($group_by_column)
                             ->selectRaw('count(completed_shopping_lists.id) AS completed_shopping_lists_num')
                             ->leftJoin('completed_shopping_lists', 'users.id', '=', 'completed_shopping_lists.user_id')
-        えぃt                    ->groupBy($group_by_column)
+                            ->groupBy($group_by_column)
                             ->orderBy('users.id')
                             ->get();
         //echo "<pre>\n";
